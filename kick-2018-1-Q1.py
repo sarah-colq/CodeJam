@@ -1,6 +1,10 @@
+% Code to solve minimum number of 'calculator presses' (either addition or substraction) to get a number with all even digits.  
+% For example, input 2018 gives solution 2, input 11 gives solution 3, input 4 gives solution 0.  
+
 import sys 
 
 def check(num): 
+% Checks if all digits are even in a number.  
   str_num = str(num)
   for digit in str_num: 
     dig_num = int(digit)
@@ -9,6 +13,7 @@ def check(num):
   return True 
 
 def largestOddDigit(int_num): 
+% Returns largest odd digit in a given number.  For example, 8315 returns 3.  
   num = str(int_num)
   length = len(num) 
   i = 0 
@@ -18,6 +23,7 @@ def largestOddDigit(int_num):
   return final 
 
 def findMin(num):
+% Checks both addition and substraction directions, and returns the minimum of the two.  
   int_num = int(num)  
   if check(int_num) : 
     return '0' 
@@ -26,6 +32,7 @@ def findMin(num):
     return str(minimum) 
    
 def findMinSub(num,count): 
+% Recursive function to find the minimum number of presses in the substraction direction.
   if check(num): 
     return count
   str_num = str(num)
@@ -39,6 +46,7 @@ def findMinSub(num,count):
   
   
 def findMinAdd(num,count): 
+% Recursive function to find the minimum number of presses in the addition direction.  
   if check(num): 
     return count
   str_num = str(num)
